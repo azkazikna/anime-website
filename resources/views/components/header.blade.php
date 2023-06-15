@@ -27,6 +27,54 @@
         .product__item__pic:hover {
             filter: brightness(50%);
         }
+
+        .anime__video__player .episode__navigations {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            color: #fff;
+            text-decoration: none
+        }
+
+        .anime__video__player .episode__navigations .before__nav {
+            width: 33%;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: #e53637;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 2px;
+        }
+
+        .anime__video__player .episode__navigations .center__nav {
+            width: 33%;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: #e53637;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 2px;
+        }
+
+        
+        .anime__video__player .episode__navigations .after__nav {
+            width: 33%;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: #e53637;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 2px;
+        }
     </style>
 </head>
 
@@ -42,8 +90,8 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html">
-                            <img src="img/logo.png" alt="">
+                        <a href="/">
+                            <img src="/img/logo.png" alt="">
                         </a>
                     </div>
                 </div>
@@ -51,7 +99,7 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Homepage</a></li>
+                                <li class="active"><a href="/">Homepage</a></li>
                                 <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
                                         <li><a href="./categories.html">Categories</a></li>

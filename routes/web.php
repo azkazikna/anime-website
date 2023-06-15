@@ -16,3 +16,4 @@ use App\Http\Controllers\ApiController;
 
 Route::get('/', [ApiController::class, 'index']);
 Route::get('/detail/{endpoint}', [ApiController::class, 'detail']);
+Route::get('/stream/{endpoint}', [ApiController::class, 'stream']);

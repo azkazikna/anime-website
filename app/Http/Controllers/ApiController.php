@@ -12,8 +12,9 @@ class ApiController extends Controller
     public function index()
     {
         $response_on_going = Http::get('https://otakudesu-anime-api.vercel.app/api/v1/ongoing/1');
+        $response_completed = Http::get('https://otakudesu-anime-api.vercel.app/api/v1/completed/1');
 
-        if($response_on_going->ok()) {
+        if($response_on_going->ok() && $response_completed->ok()) {
             $data_on_going = $response_on_going->json();
             $data_on_going["ongoing"] = array_slice($data_on_going["ongoing"], 0, 6);
 
@@ -38,10 +39,20 @@ class ApiController extends Controller
                 $endpoint = $item['endpoint'];
                 $item['anime_detail'] = getAnimeDetail($endpoint);
             }
+            
+            $data_completed = $response_completed->json();
+            $data_completed["completed"] = array_slice($data_completed["completed"], 0, 6);
 
-            // dd($data_on_going);
+            // Ambil data detail untuk setiap endpoint yang sama
+            foreach ($data_completed["completed"] as &$item) {
+                $endpoint = $item['endpoint'];
+                $item['anime_detail'] = getAnimeDetail($endpoint);
+            }
+
+            // dd($data_completed);
             return view('index', [
-                'data_on_going' => $data_on_going["ongoing"]
+                'data_on_going' => $data_on_going["ongoing"],
+                'data_completed' => $data_completed["completed"],
             ]);
 
         } else {
@@ -58,6 +69,23 @@ class ApiController extends Controller
 
             // dd($data);
             return view('detail', [
+                'data' => $data
+            ]);
+
+        } else {
+            dd('gagal koneksi api');
+        }
+    }
+
+    public function stream($endpoint)
+    {
+        $response = Http::get("https://otakudesu-anime-api.vercel.app/api/v1/episode/$endpoint");
+
+        if($response->ok()) {
+            $data = $response->json();
+
+            // dd($data["relative"]);
+            return view('stream', [
                 'data' => $data
             ]);
 

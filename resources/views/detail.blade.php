@@ -67,39 +67,21 @@
                         </div>
                         <div class="anime__details__btn">
                             <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
-                            <button class="follow-btn" data-bs-toggle="popover" title="Daftar Episode"
-                            data-bs-content="And here's some amazing content. It's very engaging. Right?"
-                            ><i class="fa fa-film"></i> Watch now</button>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-lg-8 col-md-8">
-                    <div class="anime__details__review">
+                    <div class="anime__details__episodes">
                         <div class="section-title">
-                            <h5>Reviews</h5>
+                            <h5>Daftar Episode</h5>
                         </div>
-                        <div class="anime__review__item">
-                            <div class="anime__review__item__pic">
-                                <img src="/img/anime/review-4.jpg" alt="">
-                            </div>
-                            <div class="anime__review__item__text">
-                                <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                                <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                "demons" LOL</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="anime__details__form">
-                        <div class="section-title">
-                            <h5>Your Comment</h5>
-                        </div>
-                        <form action="#">
-                            <textarea placeholder="Your Comment"></textarea>
-                            <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
-                        </form>
+                        <ul style="list-style: none">
+                            @foreach ($data["episode_list"] as $item)
+                            <li class="anime__details__btn"><a href="/stream/{{ $item["episode_endpoint"] }}" class="follow-btn"><i class="fa fa-film"></i> {{ $item["episode_title"] }}</a></li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
