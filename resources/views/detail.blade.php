@@ -67,7 +67,9 @@
                         </div>
                         <div class="anime__details__btn">
                             <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
-                            <button href="#" class="follow-btn" data-bs-toggle="popover" ><i class="fa fa-film"></i> Watch now</button>
+                            <button class="follow-btn" data-bs-toggle="popover" title="Daftar Episode"
+                            data-bs-content="And here's some amazing content. It's very engaging. Right?"
+                            ><i class="fa fa-film"></i> Watch now</button>
                             </div>
                         </div>
                     </div>
